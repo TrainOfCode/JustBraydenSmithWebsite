@@ -2,15 +2,21 @@
 var grid = [10][10]
 
 var allFish = []
-var randomTimeInterval
 var fishFriction = 0.01
+
+var randomSpawnPlankton
+var maxPlankton = 10
+var totalPlankton = 0
+
+var allPlankton = []
+
 function setup() {
   let oceanGraph = createCanvas(900, 700);
   oceanGraph.parent("oceanContainer");
   for (var i = 0; i < 1; i++) {
-    allFish.push(new Fish(50 + Math.floor(Math.random() * 800), Math.floor(50 + Math.random() * 600)))
+    allFish.push(new Fish(50 + Math.floor(Math.random() * 800), 50 + Math.floor(Math.random() * 600)))
   }
-  randomTimeInterval = 100 + (-20 + Math.floor(Math.random() * 41))
+  randomSpawnPlankton = 200 + (-20 + Math.floor(Math.random() * 41))
 }
 
 function draw() {
@@ -19,14 +25,26 @@ function draw() {
     fish.update()
     fish.show()
   })
-  if(randomTimeInterval == 0) {
+
+  allPlankton.forEach(plankton => {
+    plankton.show();
+  })
+
+
+  if(randomSpawnPlankton == 0) {
     spawnPlankton()
-    randomTimeInterval = 100 + (-20 + Math.floor(Math.random() * 41))
+    randomSpawnPlankton = 200 + (-20 + Math.floor(Math.random() * 41))
   }
-  randomTimeInterval--
+  randomSpawnPlankton--
 }
 
 
 function spawnPlankton() {
-
+  if (totalPlankton < maxPlankton) {
+    randx = 50 + Math.floor(Math.random() * 800)
+    randy = 50 + Math.floor(Math.random() * 600)
+    console.log('spawning plankton')
+    allPlankton.push(new Plankton(randx, randy))
+    totalPlankton++
+  }
 }

@@ -3,6 +3,9 @@ function Fish(x, y) {
   this.vel = createVector();
   this.acc = createVector();
 
+  this.mode = "seek"
+  this.target = "food"
+
 
   this.applyForce = function(f) {
     this.acc.add(f);
@@ -21,6 +24,11 @@ function Fish(x, y) {
     this.vel.add(this.acc);
     this.acc.mult(0);
     this.checkPos()
+
+    if(this.mode = "seek") {
+
+    }
+
   };
 
   this.show = function() {
