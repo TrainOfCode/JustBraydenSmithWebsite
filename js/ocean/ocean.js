@@ -3,6 +3,7 @@ var grid = [10][10]
 
 var allFish = []
 var fishFriction = 0.01
+var fishMaxSpeed = 10
 
 var randomSpawnPlankton
 var maxPlankton = 10
@@ -20,15 +21,22 @@ function setup() {
 }
 
 function draw() {
-  background(2,119,191);
+  background(2,119,191)
+
+  allPlankton.forEach(plankton => {
+    plankton.show()
+  })
+
   allFish.forEach(fish => {
+    allPlankton.forEach(plankton => {
+      fish.seek(plankton)
+    })
+
     fish.update()
     fish.show()
   })
 
-  allPlankton.forEach(plankton => {
-    plankton.show();
-  })
+
 
 
   if(randomSpawnPlankton == 0) {
@@ -43,8 +51,12 @@ function spawnPlankton() {
   if (totalPlankton < maxPlankton) {
     randx = 50 + Math.floor(Math.random() * 800)
     randy = 50 + Math.floor(Math.random() * 600)
-    console.log('spawning plankton')
     allPlankton.push(new Plankton(randx, randy))
     totalPlankton++
   }
+}
+
+function mousePressed(event) {
+  allPlankton.push(new Plankton(mouseX, mouseY))
+  totalPlankton++
 }
