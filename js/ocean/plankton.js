@@ -1,6 +1,10 @@
 function Plankton(x, y) {
   this.pos = createVector(x, y)
 
+  this.eaten = false
+
+  this.type = "plankton"
+
 
 
   this.show = function() {
