@@ -1,0 +1,8 @@
+function Maze() {
+  this.nodes = {};
+  
+
+
+
+
+}
