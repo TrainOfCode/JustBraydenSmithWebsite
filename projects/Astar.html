@@ -4,6 +4,8 @@
   <link href="../css/projects/Astar.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   <script type="text/javascript" src="../js/Astar/Astar.js"></script>
+  <script type="text/javascript" src="../js/Astar/Maze.js"></script>
+  <script type="text/javascript" src="../js/Astar/Cell.js"></script>
 </head>
 <body class="bgColor1">
   <div class="bgColor3" style="width: 100%; height: 25px;">
@@ -24,6 +26,9 @@
   <div style="margin: 50px; display: flex; align-items: center; justify-content: space-around;">
     <div>
       <a class="hollowBtn color2 border2" onclick="runAstar()">Run A*</a>
+    </div>
+    <div>
+      <a class="hollowBtn color2 border2" onclick="drawMaze()">Draw Maze</a>
     </div>
     <div style="display: flex; flex-direction: column;">
       <p>Choose your maze: </p>
