@@ -2,6 +2,8 @@ var mazesTxt;
 var maze;
 var Width = 800;
 var Height = 800;
+var runningAstar = false;
+
 function preload() {
   mazesTxt = loadStrings('assets/mazes.txt/');
   maze = new Maze(Width, Height);
@@ -41,5 +43,5 @@ function drawMaze() {
 }
 
 function runAstar() {
-  console.log("RUN ASTAR");
+  maze.runAstar();
 }

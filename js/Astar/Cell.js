@@ -4,6 +4,9 @@ function Cell(x, y) {
   this.end = false;
   this.start = false;
 
+  this.gscore = null;
+  this.fscore = null;
+
   //              T       R      B     L
   //            y - 1, x + 1, y + 1, x - 1
   this.edges = [true, true, true, true];
