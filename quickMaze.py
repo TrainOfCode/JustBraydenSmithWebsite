@@ -60,8 +60,9 @@ class Graph:
 
     def exportTxt(self):
         f = open("newMaze.txt", "w")
-        for i in self.nodes:
-            f.write(str(self.nodes[i]))
+        for row in self.mM:
+            for node in row:
+                f.write(str(node))
         f.close()
 
     def __str__(self):
@@ -172,7 +173,7 @@ done = "0"
 while done != "-1":
     buildMaze(gr)
 
-    done = input("Alright here's the maze, are you good to finish?")
+    done = input("Alright here's the maze, are you good to finish? (-1 to finish)")
 
 
 gr.exportTxt()

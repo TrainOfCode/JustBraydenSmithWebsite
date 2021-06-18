@@ -4,6 +4,9 @@ function Cell(x, y) {
   this.end = false;
   this.start = false;
 
+  this.onPath = false;
+
+
   this.gscore = null;
   this.fscore = null;
 
@@ -28,6 +31,23 @@ function Cell(x, y) {
         this.edges[0] = false;
       }
     }
+  }
+
+  this.getNeighborCoords = function() {
+    var coords = [];
+    if (!this.edges[0]) {
+      coords.push([this.x, this.y - 1])
+    }
+    if (!this.edges[1]) {
+      coords.push([this.x + 1, this.y])
+    }
+    if (!this.edges[2]) {
+      coords.push([this.x, this.y + 1])
+    }
+    if (!this.edges[3]) {
+      coords.push([this.x - 1, this.y])
+    }
+    return coords
   }
 
   this.show = function(h, w) {
@@ -66,6 +86,14 @@ function Cell(x, y) {
     }
     line(xP, yP, xP, yP + h);
 
+    if (this.onPath) {
+      stroke(250, 218, 84);
+      stroke(250, 218, 84);
+      strokeWeight(1);
+      ellipse((xP + floor(w/2)), (yP + floor(h/2)), floor(w/4));
+      noFill();
+    }
+
     if (this.end) {
       stroke(211, 28, 56);
       fill(211, 28, 56);
@@ -81,6 +109,11 @@ function Cell(x, y) {
       ellipse((xP + floor(w/2)), (yP + floor(h/2)), floor(w/8));
       noFill();
     }
+
   }
 
+  this.prettyString = function() {
+    s = "(" + this.x + ", " + this.y + ")";
+    return s
+  }
 }
