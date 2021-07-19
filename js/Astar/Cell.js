@@ -4,6 +4,8 @@ function Cell(x, y) {
   this.end = false;
   this.start = false;
 
+  this.checked = false;
+
   this.onPath = false;
 
 
@@ -86,9 +88,17 @@ function Cell(x, y) {
     }
     line(xP, yP, xP, yP + h);
 
+    if (this.checked) {
+      stroke(0, 64, 255);
+      fill(0, 64, 255);
+      strokeWeight(1);
+      ellipse((xP + floor(w/2)), (yP + floor(h/2)), floor(w/4));
+      noFill();
+    }
+
     if (this.onPath) {
       stroke(250, 218, 84);
-      stroke(250, 218, 84);
+      fill(250, 218, 84);
       strokeWeight(1);
       ellipse((xP + floor(w/2)), (yP + floor(h/2)), floor(w/4));
       noFill();

@@ -78,12 +78,14 @@ function Maze(Width, Height) {
       var foundPath = false;
       while(!BH.isEmpty()) {
         var curr = BH.remove();
+        curr.checked = true;
         // BH.prettyPrint();
         console.log(curr.prettyString());
         console.log("----------\n\n");
         if (curr == this.end) {
           console.log("FOUND THE END!");
           foundPath = true;
+          break;
         } else {
           neighborCoords = curr.getNeighborCoords();
           for (neighborCoord of neighborCoords) {
