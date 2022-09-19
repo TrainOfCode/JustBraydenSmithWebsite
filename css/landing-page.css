@@ -58,6 +58,8 @@
   align-items: center;
   width: 300px;
   margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 
 }
 
@@ -85,6 +87,9 @@
   #aboutBody {
     flex-direction: column;
     align-items: center;
+  }
+  #aboutBody > div {
+    margin-bottom: 20px;
   }
   #mainTitle {
     padding:10px;

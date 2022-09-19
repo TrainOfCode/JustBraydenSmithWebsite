@@ -5,7 +5,7 @@ var Height = 800;
 var runningAstar = false;
 
 function preload() {
-  mazesTxt = loadStrings('assets/mazes.txt/');
+  mazesTxt = loadStrings('../projects/assets/mazes.txt');
   maze = new Maze(Width, Height);
 }
 

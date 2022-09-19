@@ -18,6 +18,7 @@ function setup() {
   var points = font.textToPoints('L', 100, 200, 192, {
     sampleFactor: 0.25
   });
+
   for (var i = 0; i < points.length; i++) {
     var pt = points[i];
     var vehicle = new Vehicle(pt.x, pt.y);

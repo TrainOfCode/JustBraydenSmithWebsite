@@ -148,3 +148,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+#footer > div > a > i {
+  color: #13334c;
+}
